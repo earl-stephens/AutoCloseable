@@ -1,6 +1,6 @@
 package application;
 
-public class Database {
+public class Database implements AutoCloseable {
 	private String connectionString;
 	/* when connecting to a DB, usually have a connection string
 	 * that has the info for connecting to the DB.  And usually have 

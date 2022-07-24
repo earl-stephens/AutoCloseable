@@ -10,6 +10,11 @@ public class App {
 		//At this point there is no closing of the db, and 
 		//the program doesn't warn about it either
 		
+		/*once AutoCloseable interface is added to Database class
+		 * now get a warning about a resource leak cause the db isn't closed
+		 */
 		
+		db.close();
+		//this removes the resource leak warning
 	}
 }
