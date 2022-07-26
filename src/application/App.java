@@ -3,18 +3,21 @@ package application;
 public class App {
 
 	public static void main(String[] args) {
-		Database db = new Database("localhost:3306");
+		Database db;
 		
-		db.getData();
-		
-		//At this point there is no closing of the db, and 
-		//the program doesn't warn about it either
-		
-		/*once AutoCloseable interface is added to Database class
-		 * now get a warning about a resource leak cause the db isn't closed
-		 */
-		
-		db.close();
-		//this removes the resource leak warning
+		try {
+			db = new Database(null);
+			db.getData();
+			/*Constructors don't have any return type, but they can
+			 * throw exceptions
+			 */
+			db.close();
+			//this removes the resource leak warning
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+
 	}
 }
