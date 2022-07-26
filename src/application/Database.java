@@ -18,8 +18,12 @@ public class Database implements AutoCloseable {
 		System.out.println("Connected to " + connectionString);
 	}
 	
-	public void getData() {
+	public void getData() throws Exception {
 		System.out.println("Getting data from " + connectionString);
+		
+		if(connectionString == null) {
+			throw new Exception("Cannot get data from db " + connectionString);
+		}
 	}
 	
 	public void close() throws Exception {

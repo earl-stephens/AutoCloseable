@@ -6,7 +6,7 @@ public class App {
 		Database db;
 		
 		try {
-			db = new Database("localhost:3306");
+			db = new Database(null);
 			db.getData();
 			/*Constructors don't have any return type, but they can
 			 * throw exceptions
@@ -15,7 +15,8 @@ public class App {
 			//this removes the resource leak warning
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 	}
