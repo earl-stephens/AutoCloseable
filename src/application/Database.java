@@ -21,7 +21,7 @@ public class Database implements AutoCloseable {
 	public void getData() throws Exception {
 		System.out.println("Getting data from " + connectionString);
 		
-		if(connectionString == null) {
+		if(connectionString.length() < 3) {
 			throw new Exception("Cannot get data from db " + connectionString);
 		}
 	}
